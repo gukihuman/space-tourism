@@ -1,9 +1,11 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">00 Home</router-link> |
+    <router-link to="/destination">01 Destination</router-link> |
+    <router-link to="/crew">02 Crew</router-link> |
+    <router-link to="/technology">03 Technology</router-link>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="scss">
@@ -22,7 +24,7 @@ nav {
     font-weight: bold;
     color: #2c3e50;
 
-    &.router-link-exact-active {
+    &.router-link-active {
       color: #42b983;
     }
   }
