@@ -1,5 +1,5 @@
-<template>
-  <div>
-    {{ this.$route.params.spaceObject }}
-  </div>
+<template lang="pug">
+
+div {{ this.$route.params.spaceObject }}
+
 </template>

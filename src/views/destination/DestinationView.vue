@@ -1,13 +1,14 @@
-<template>
-  01 Pick your destination
-  <nav>
-    <div v-for="(item, i) in data.destinations" :key="i">
-      <router-link :to="item.name.toLowerCase().split(' ').join('_')">{{
-        item.name
-      }}</router-link>
-    </div>
-  </nav>
-  <router-view></router-view>
+<template lang="pug">
+
+|01 Pick your destination
+nav
+  router-link(
+    v-for="(item, i) in data.destinations"
+    :key="i"
+    :to="item.name.toLowerCase().split(' ').join('_')"
+  ) {{ item.name }}
+router-view
+
 </template>
 
 <script>

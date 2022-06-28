@@ -1,5 +1,5 @@
-<template>
-  <div>
-    {{ this.$route.params.member }}
-  </div>
+<template lang="pug">
+
+div {{ this.$route.params.member }}
+
 </template>
