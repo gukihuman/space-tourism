@@ -5,7 +5,18 @@
 @tailwind utilities;
 
 @layer components {
-  .router-link-active {
-    @apply text-slate-600;
+  .mobile-nav.router-link-active {
+    @apply after:w-1 after:h-[31px] after:bg-white after:mt-[2px]
+      after:absolute after:right-0;
+  }
+  @supports (backdrop-filter: blur(1px)) {
+    .backdrop-mobile-filter {
+      @apply backdrop-blur-[81.5485px];
+    }
+  }
+  @supports not (backdrop-filter: blur(1px)) {
+    .backdrop-mobile-filter {
+      @apply bg-gradient-to-b from-gray-900 to-gray-700 !important;
+    }
   }
 }
