@@ -6,17 +6,22 @@
 
 @layer components {
   .mobile-nav.router-link-active {
-    @apply after:w-1 after:h-[31px] after:bg-white after:mt-[2px]
-      after:absolute after:right-0;
+    @apply after:w-1 after:h-full after:bg-white after:mt-[2px]
+    after:absolute after:right-0;
+  }
+  .nav.router-link-active {
+    @apply after:w-full after:h-[3px] after:bg-white after:absolute
+    after:bottom-0;
   }
   @supports (backdrop-filter: blur(1px)) {
-    .backdrop-mobile-filter {
+    .backdrop-filter {
       @apply backdrop-blur-[81.5485px];
     }
   }
   @supports not (backdrop-filter: blur(1px)) {
-    .backdrop-mobile-filter {
-      @apply bg-gradient-to-b from-gray-900 to-gray-700 !important;
+    .backdrop-filter {
+      @apply bg-gradient-to-b from-gray-900 to-gray-800 opacity-[.98]
+      !important;
     }
   }
 }
