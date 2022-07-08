@@ -2,7 +2,7 @@
     
 nav(class="absolute right-0 w-[254px] h-screen bg-white/[.04] \
 backdrop-filter font-barlow-condensed text-base tracking-[2.7px] text-white \
-flex flex-col pt-[111px] gap-5")
+flex flex-col pt-[111px] gap-5 z-10")
   router-link(
       v-for="(link, linkId, i) in links"
       :key="i"

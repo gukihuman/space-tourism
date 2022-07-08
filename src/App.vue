@@ -1,20 +1,22 @@
 <template lang="pug">
 
-div(class="bg-home bg-cover min-h-screen sm:bg-home-sm xl:bg-home-xl")
+div(:class="preloadBackgrounds")
+div(class="bg-cover min-h-screen bg-slate-900 bg-home sm:bg-home-sm xl:bg-home-xl"
+:class="classObject")
   div(class="relative max-w-screen-2xl min-h-screen m-auto")
     MobileNav(v-if="showNav" :links="links")
     Nav(:links="links") //- hidden by default
     header(class="flex items-center p-6 justify-between")
-      img(src="@/assets/shared/logo.svg" alt="Logo" class="w-10 sm:w-12 \
+      img(src="@/assets/shared/logo.svg" alt="logo" class="w-10 sm:w-12 \
       sm:ml-[15px] xl:mt-10 xl:ml-[31px]")
       div(class="hidden xl:flex w-1/2 h-[1px] absolute top-[88px] \
       left-0 pl-[167px] pr-[80px]")
         div(class="w-full bg-white opacity-25")
       button(v-if="!showNav" @click="toggleNav" class="sm:hidden")
-        img(src="@/assets/shared/icon-hamburger.svg" alt="Menu")
+        img(src="@/assets/shared/icon-hamburger.svg" alt="menu")
       button(v-if="showNav" @click="toggleNav" class="absolute top-[34px] \
-      right-[26px]")
-        img(src="@/assets/shared/icon-close.svg" alt="Close menu")
+      right-[26px] z-20")
+        img(src="@/assets/shared/icon-close.svg" alt="close menu")
     router-view
 
 </template>
@@ -30,6 +32,7 @@ export default {
   },
   data() {
     return {
+      preloadBackgrounds: "",
       showNav: false,
       links: {
         "00": ["HOME", "/"],
@@ -39,10 +42,45 @@ export default {
       },
     };
   },
+  computed: {
+    preload() {
+      return this.preloadBackgrounds;
+    },
+    classObject() {
+      return {
+        "bg-destination": this.$route.path.includes("destination"),
+        "sm:bg-destination-sm": this.$route.path.includes("destination"),
+        "xl:bg-destination-xl": this.$route.path.includes("destination"),
+        "bg-crew": this.$route.path.includes("crew"),
+        "sm:bg-crew-sm": this.$route.path.includes("crew"),
+        "xl:bg-crew-xl": this.$route.path.includes("crew"),
+        "bg-technology": this.$route.path.includes("technology"),
+        "sm:bg-technology-sm": this.$route.path.includes("technology"),
+        "xl:bg-technology-xl": this.$route.path.includes("technology"),
+      };
+    },
+  },
   methods: {
     toggleNav() {
       this.showNav = !this.showNav;
     },
+  },
+  mounted() {
+    this.classObject;
+    setTimeout(() => {
+      this.preloadBackgrounds =
+        "bg-destination sm:bg-destination-sm xl:bg-destination-xl";
+    }, 1200);
+    setTimeout(() => {
+      this.preloadBackgrounds = "bg-crew sm:bg-crew-sm xl:bg-crew-xl";
+    }, 1500);
+    setTimeout(() => {
+      this.preloadBackgrounds =
+        "bg-technology sm:bg-technology-sm xl:bg-technology-xl";
+    }, 1800);
+    setTimeout(() => {
+      this.preloadBackgrounds = "bg-home sm:bg-home-sm xl:bg-home-xl";
+    }, 1800);
   },
 };
 </script>
