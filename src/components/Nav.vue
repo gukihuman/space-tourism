@@ -1,8 +1,8 @@
 <template lang="pug">
     
-nav(class="hidden sm:flex absolute right-0 w-[450px] h-24 bg-white/[.04] \
+nav(class="hidden sm:flex right-0 w-[450px] h-24 bg-white/[.04] \
 backdrop-filter font-barlow-condensed text-sm tracking-[2.36px] text-white \
-gap-[37px] justify-center items-center xl:mt-10 xl:w-[830px] xl:gap-[48px] \
+gap-[37px] justify-center items-center xl:w-[830px] xl:gap-[48px] \
 xl:pr-[42px] xl:text-base xl:tracking-[2.7px]")
   router-link(
     v-for="(link, linkId, i) in links"
