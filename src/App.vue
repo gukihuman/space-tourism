@@ -3,34 +3,40 @@
 div(:class="preloadBackgrounds")
 
 //- html background
-div(class="bg-cover min-h-screen bg-slate-900 bg-home sm:bg-home-sm xl:bg-home-xl"
-:class="classObject")
+div(class="bg-black bg-cover min-h-screen bg-home sm:bg-home-sm \
+  xl:bg-home-xl" :class="classObject")
 
-  //- wrapper
-  div(class="relative max-w-screen-2xl min-h-screen m-auto")
+  //- html black .75 filter except for home
+  div(:class="classBackground")
 
-    MobileNav(v-if="showNav" :links="links")
+    //- wrapper
+    div(class="relative max-w-screen-2xl min-h-screen m-auto flex flex-col \
+    xl:justify-end")
 
-    header(class="flex items-center p-6 justify-between sm:p-0 xl:pt-10")
-      img(src="@/assets/shared/logo.svg" alt="logo" class="w-10 sm:w-12 \
-      sm:ml-[39px]")
-      
-      //- line
-      div(class="hidden xl:flex w-1/2 h-[1px] absolute top-[88px] \
-      left-0 pl-[167px] pr-[80px]")
-        div(class="w-full bg-white opacity-25 z-20")
+      div(class="h-fit xl:min-h-[858px]")
 
-      //- opens mobile navigation
-      button(v-if="!showNav" @click="toggleNav" class="sm:hidden")
-        img(src="@/assets/shared/icon-hamburger.svg" alt="menu")
-      button(v-if="showNav" @click="toggleNav" class="absolute top-[34px] \
-      right-[26px] z-20")
-        img(src="@/assets/shared/icon-close.svg" alt="close menu")
+        MobileNav(v-if="showNav" :links="links" @toggleNavEvent="toggleNav")
 
-      //- hidden on mobile
-      Nav(:links="links")
+        header(class="relative flex items-center p-6 justify-between sm:p-0")
+          img(src="@/assets/shared/logo.svg" alt="logo" class="w-10 sm:w-12 \
+          sm:ml-[39px]")
+          
+          //- line
+          div(class="hidden xl:flex w-1/2 h-[1px] absolute top-[48px] \
+          left-0 pl-[167px] pr-[80px]")
+            div(class="w-full bg-white opacity-25 z-20")
 
-    router-view
+          //- opens mobile navigation
+          button(v-if="!showNav" @click="toggleNav" class="sm:hidden")
+            img(src="@/assets/shared/icon-hamburger.svg" alt="menu")
+          button(v-if="showNav" @click="toggleNav" class="absolute top-[34px] \
+          right-[26px] z-20")
+            img(src="@/assets/shared/icon-close.svg" alt="close menu")
+
+          //- hidden on mobile
+          Nav(:links="links")
+
+        router-view
 
 </template>
 
@@ -58,6 +64,14 @@ export default {
   computed: {
     preload() {
       return this.preloadBackgrounds;
+    },
+    classBackground() {
+      return {
+        "bg-black/25":
+          this.$route.path.includes("destination") ||
+          this.$route.path.includes("crew") ||
+          this.$route.path.includes("technology"),
+      };
     },
     classObject() {
       return {

@@ -16,7 +16,7 @@ xl:mx-0 xl:items-start xl:max-w-[445px]")
   div(class="bg-[#383B4B] h-[1px] w-full mt-8 sm:mt-[49px] xl:mt-[54px]")
 
   div(class="flex flex-col items-center mb-[38px] sm:flex-row sm:gap-[11px] \
-  sm:mb-[62px] xl:flex-row xl:items-start xl:gap-3")
+  sm:mb-[62px] xl:flex-row xl:items-start xl:gap-3 xl:mb-[118px]")
     div(
       v-for="(item, i) in distanceTravelData"
       :key="i"

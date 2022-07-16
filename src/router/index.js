@@ -36,7 +36,7 @@ const routes = [
     path: "/crew",
     name: "crew",
     component: CrewView,
-    redirect: `/crew/${data.crew[0].role.toLowerCase().split(" ").join("_")}`,
+    redirect: `/crew/${data.crew[0].role}`,
     children: [
       {
         path: ":member",
