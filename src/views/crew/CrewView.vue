@@ -6,7 +6,7 @@ div(class="xl:min-h-[calc(100vh-136px)]")
   xl:min-h-[calc(576px+136px)] xl:max-h-[788px]")
 
     div(class="xl:ml-[166px] xl:mb-[112px] xl:w-[509px] xl:h-[576px] xl:flex \
-    xl:justify-between xl:flex-col ")
+    xl:justify-between xl:flex-col sm:w-full")
 
       p(class="font-barlow-condensed text-white text-base leading-[19px] \
       tracking-[2.7px] flex justify-center sm:text-xl sm:leading-6 \
@@ -16,7 +16,8 @@ div(class="xl:min-h-[calc(100vh-136px)]")
         span(class="opacity-25 mr-[16px] font-bold sm:mr-[19px] xl:mr-7") 02
         span MEET YOUR CREW
 
-      picture(class="w-fit xl:self-end")
+      picture(class="w-full sm:absolute sm:bottom-0 xl:self-end overflow-hidden \
+      sm:h-[532px]")
         source(
           :srcset="require(`@/assets/crew/${$route.params.member}.webp`)"
           type="image/webp"
@@ -26,14 +27,14 @@ div(class="xl:min-h-[calc(100vh-136px)]")
           type="image/png"
           )
         img(:alt="$route.params.member" class="h-[223px] mx-auto mt-8 \
-        sm:h-[300px] sm:mt-[60px] xl:h-[445px]")
+        sm:h-full sm:mt-0 sm:m-auto xl:h-[445px]" :class="commanderClass")
 
     //- line
-    div(class="bg-[#383B4B] h-[1px] w-[327px] sm:mt-[49px] xl:mt-[54px]")
+    div(class="bg-[#383B4B] h-[1px] w-[327px] sm:hidden xl:mt-[54px]")
 
-    div(class="flex flex-col mt-8 sm:mt-[53px] xl:ml-[157px]")
+    div(class="flex flex-col mt-8 sm:mt-0 sm:flex-col-reverse xl:ml-[157px]")
 
-      nav(class="h-[10px] gap-2 flex m-auto")
+      nav(class="gap-2 flex m-auto")
         router-link(
           v-for="(item, i) in links"
           :key="i"
@@ -55,6 +56,13 @@ export default {
     return {
       links: data.crew.map((item) => item.role),
     };
+  },
+  computed: {
+    commanderClass() {
+      return {
+        "sm:!h-[572px]": this.$route.params.member === "commander",
+      };
+    },
   },
 };
 </script>
