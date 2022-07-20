@@ -6,37 +6,40 @@ div(:class="preloadBackgrounds")
 div(class="bg-black bg-cover min-h-screen bg-home sm:bg-home-sm \
   xl:bg-home-xl" :class="classObject")
 
-  //- html black .75 filter except for home
-  div(:class="classBackground")
+  div(class="relative sm:max-h-[1100px] xl:max-h-[950px] sm:min-h-[950px] \
+  xl:min-h-[820px]")
 
-    //- wrapper
-    div(class="relative max-w-screen-2xl min-h-screen m-auto flex flex-col \
-    xl:justify-end")
+    //- html black .75 filter except for home
+    div(:class="classBackground")
 
-      div(class="h-fit xl:min-h-[858px]")
+      //- wrapper
+      div(class="max-w-screen-2xl min-h-screen m-auto flex flex-col \
+      xl:justify-end")
 
-        MobileNav(v-if="showNav" :links="links" @toggleNavEvent="toggleNav")
+        div(class="h-fit xl:min-h-[858px]")
 
-        header(class="relative flex items-center p-6 justify-between sm:p-0")
-          img(src="@/assets/shared/logo.svg" alt="logo" class="w-10 sm:w-12 \
-          sm:ml-[39px]")
-          
-          //- line
-          div(class="hidden xl:flex w-1/2 h-[1px] absolute top-[48px] \
-          left-0 pl-[167px] pr-[80px]")
-            div(class="w-full bg-white opacity-25 z-20")
+          MobileNav(v-if="showNav" :links="links" @toggleNavEvent="toggleNav")
 
-          //- opens mobile navigation
-          button(v-if="!showNav" @click="toggleNav" class="sm:hidden")
-            img(src="@/assets/shared/icon-hamburger.svg" alt="menu")
-          button(v-if="showNav" @click="toggleNav" class="absolute top-[34px] \
-          right-[26px] z-20")
-            img(src="@/assets/shared/icon-close.svg" alt="close menu")
+          header(class="relative flex items-center p-6 justify-between sm:p-0")
+            img(src="@/assets/shared/logo.svg" alt="logo" class="w-10 sm:w-12 \
+            sm:ml-[39px]")
+            
+            //- line
+            div(class="hidden xl:flex w-1/2 h-[1px] absolute top-[48px] \
+            left-0 pl-[167px] pr-[80px]")
+              div(class="w-full bg-white opacity-25 z-20")
 
-          //- hidden on mobile
-          Nav(:links="links")
+            //- opens mobile navigation
+            button(v-if="!showNav" @click="toggleNav" class="sm:hidden")
+              img(src="@/assets/shared/icon-hamburger.svg" alt="menu")
+            button(v-if="showNav" @click="toggleNav" class="absolute top-[34px] \
+            right-[26px] z-20")
+              img(src="@/assets/shared/icon-close.svg" alt="close menu")
 
-        router-view
+            //- hidden on mobile
+            Nav(:links="links")
+
+          router-view
 
 </template>
 
@@ -62,9 +65,6 @@ export default {
     };
   },
   computed: {
-    preload() {
-      return this.preloadBackgrounds;
-    },
     classBackground() {
       return {
         "bg-black/25":
@@ -93,7 +93,6 @@ export default {
     },
   },
   mounted() {
-    this.classObject;
     setTimeout(() => {
       this.preloadBackgrounds =
         "bg-destination sm:bg-destination-sm xl:bg-destination-xl";

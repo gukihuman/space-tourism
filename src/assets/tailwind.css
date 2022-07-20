@@ -17,6 +17,10 @@
     @apply after:bg-white after:absolute after:h-[10px] after:w-[10px]
     after:top-1 after:left-1 after:rounded-full;
   }
+  .sub-nav-xl.router-link-active {
+    @apply after:bg-white after:absolute after:h-[15px] after:w-[15px]
+    after:top-[5px] after:left-[5px] after:rounded-full;
+  }
   @supports (backdrop-filter: blur(1px)) {
     .backdrop-filter {
       @apply backdrop-blur-[81.5485px];

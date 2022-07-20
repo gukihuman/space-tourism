@@ -6,12 +6,12 @@ div(class="xl:min-h-[calc(100vh-136px)]")
   xl:min-h-[calc(576px+136px)] xl:max-h-[788px]")
 
     div(class="xl:ml-[166px] xl:mb-[112px] xl:w-[509px] xl:h-[576px] xl:flex \
-    xl:justify-between xl:flex-col ")
+    xl:justify-between xl:flex-col")
 
       p(class="font-barlow-condensed text-white text-base leading-[19px] \
       tracking-[2.7px] flex justify-center mt-[10px] sm:text-xl sm:leading-6 \
       sm:justify-start sm:mt-10 sm:ml-[38.5px] sm:tracking-[3.38px] \
-      xl:text-[28px] xl:leading-[33.6p] xl:tracking-[4.72px] \
+      xl:text-[28px] xl:leading-[34px] xl:tracking-[4.72px] \
       xl:ml-0 xl:mt-0")
         span(class="opacity-25 mr-[18px] font-bold sm:mr-[19px] xl:mr-7") 01
         span PICK YOUR DESTINATION
@@ -26,7 +26,7 @@ div(class="xl:min-h-[calc(100vh-136px)]")
           type="image/png"
           )
         img(:alt="$route.params.spaceObject" class="h-[170px] mx-auto mt-8 \
-        sm:h-[300px] sm:mt-[60px] xl:h-[445px]")
+        sm:h-[300px] sm:mt-[60px] xl:h-[445px] xl:mt-[97px]")
 
     div(class="flex flex-col mt-[26px] sm:mt-[53px] xl:ml-[157px]")
 
