@@ -21,10 +21,7 @@ const routes = [
     path: "/destination",
     name: "destination",
     component: DestinationView,
-    redirect: `/destination/${data.destinations[0].name
-      .toLowerCase()
-      .split(" ")
-      .join("_")}`,
+    redirect: `/destination/${data.destinations[0].name}`,
     children: [
       {
         path: ":spaceObject",
@@ -48,10 +45,7 @@ const routes = [
     path: "/technology",
     name: "technology",
     component: TechnologyView,
-    redirect: `/technology/${data.technology[0].name
-      .toLowerCase()
-      .split(" ")
-      .join("_")}`,
+    redirect: `/technology/${data.technology[0].name}`,
     children: [
       {
         path: ":techObject",

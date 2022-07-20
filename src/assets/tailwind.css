@@ -21,6 +21,9 @@
     @apply after:bg-white after:absolute after:h-[15px] after:w-[15px]
     after:top-[5px] after:left-[5px] after:rounded-full;
   }
+  .tech-nav.router-link-active {
+    @apply text-slate-900 bg-white;
+  }
   @supports (backdrop-filter: blur(1px)) {
     .backdrop-filter {
       @apply backdrop-blur-[81.5485px];
