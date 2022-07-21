@@ -4,13 +4,13 @@ div(class="flex flex-col items-center max-w-[327px] sm:max-w-[458px] mx-auto \
 xl:mx-0 xl:items-start xl:max-w-none xl:ml-[165px]" :class="widthClass")
 
   h2(class="font-barlow-condensed tracking-[2.36px] text-base \
-  leading-[18.34px] mt-7 text-slate-400 sm:text-2xl \
-  sm:leading-[27.5px] sm:mt-[60px] xl:mt-[155px] \
+  leading-[18.34px] mt-7 text-slate-400 sm:tracking-[2.7px] \
+  sm:leading-[19.2px] sm:mt-[44px] xl:mt-[155px] \
   xl:text-[32px] xl:leading-[36.6px] \
   ") THE TERMINOLOGY...
 
   h1(class="font-bellefair text-2xl leading-[28px] text-white mt-2 \
-  sm:text-[40px] sm:leading-[45.8px] sm:mt-2 xl:mt-[15px] xl:text-[56px] \
+  sm:text-[40px] sm:leading-[45.8px] sm:mt-4 xl:mt-[15px] xl:text-[56px] \
   xl:leading-[64px] \
   ") {{ currentObject.name.split("-").join(" ").toUpperCase() }}
 
