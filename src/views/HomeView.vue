@@ -23,8 +23,8 @@ div(class="sm:min-h-[calc(100vh-136px)]")
         |the edge of it. Well sit back, and relax because we’ll give you a truly 
         |out of this world experience!
 
-    button(class="w-[150px] h-[150px] mt-[81px] bg-white rounded-full \
-    mx-auto flex justify-center sm:w-[242px] sm:h-[242px] sm:mt-[156px] \
+    button(class="w-[150px] h-[150px] mt-[57px] bg-white rounded-full \
+    mx-auto flex justify-center sm:w-[242px] sm:h-[242px] sm:mt-[132px] \
     xl:mx-0 xl:w-[274px] xl:h-[274px]" )
       p(class="text-slate-900 font-bellefair text-xl leading-[23px] \
         tracking-[1.25px] pt-[68px] sm:text-[32px] sm:leading-[36.36px] \
