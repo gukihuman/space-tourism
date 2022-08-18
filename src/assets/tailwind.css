@@ -13,16 +13,27 @@
     @apply after:w-full after:h-[3px] after:bg-white after:absolute
     after:bottom-0 text-white;
   }
-  .sub-nav.router-link-active {
+  .nav:hover:not(.router-link-active) {
+    @apply after:w-full after:h-[3px] after:bg-white after:opacity-50
+    after:absolute after:bottom-0 text-white;
+  }
+  .crew-nav.router-link-active {
     @apply after:bg-white after:absolute after:h-[10px] after:w-[10px]
     after:top-1 after:left-1 after:rounded-full;
   }
-  .sub-nav-xl.router-link-active {
+  .crew-nav-xl.router-link-active {
     @apply after:bg-white after:absolute after:h-[15px] after:w-[15px]
     after:top-[5px] after:left-[5px] after:rounded-full;
   }
+  .crew-nav-xl:hover:not(.router-link-active) {
+    @apply after:bg-white after:absolute after:h-[15px] after:w-[15px]
+    after:top-[5px] after:left-[5px] after:rounded-full after:opacity-50;
+  }
   .tech-nav.router-link-active {
     @apply text-slate-900 bg-white;
+  }
+  .tech-nav:hover:not(.router-link-active) {
+    @apply xl:border-white;
   }
   @supports (backdrop-filter: blur(1px)) {
     .backdrop-filter {

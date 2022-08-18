@@ -46,8 +46,8 @@ div(class="xl:min-h-[calc(100vh-136px)]")
           v-for="(item, i) in links"
           :key="i"
           :to="item"
-          class="sub-nav w-[18px] h-[18px] relative rounded-full xl:w-[25px] \
-          xl:h-[25px] xl:sub-nav-xl"
+          class="crew-nav w-[18px] h-[18px] relative rounded-full xl:w-[25px] \
+          xl:h-[25px] xl:crew-nav-xl"
         )
           div(class="absolute h-[10px] w-[10px] top-1 left-1 xl:h-[15px] \
           xl:w-[15px] rounded-full bg-white/[.17]")

@@ -30,7 +30,8 @@ div(class="xl:min-h-[calc(100vh-136px)] overflow-hidden xl:overflow-visible")
           img(:alt="$route.params.techObject" class="h-full min-w-[422px] mt-8 \
           sm:h-full scale-[1.05] sm:mt-0 sm:m-auto xl:h-[445px]")
       
-      picture(class="hidden xl:block absolute right-0 bottom-[101px]")
+      picture(class="hidden xl:block absolute right-0 bottom-[101px] \
+      w-[35.7%]")
         source(
           :srcset="require(`@/assets/technology/${$route.params.techObject}-portrait.jpg`)"
           type="image/jpg"
@@ -38,9 +39,9 @@ div(class="xl:min-h-[calc(100vh-136px)] overflow-hidden xl:overflow-visible")
         img(:alt="$route.params.techObject")
 
     div(class="flex flex-col mt-[34px] sm:mt-[56px] xl:mb-[214px] xl:flex-row \
-    xl:mt-0 xl:items-start xl:")
+    xl:mt-0 xl:items-start xl:ml-[11.4%]")
 
-      nav(class="gap-4 flex m-auto xl:flex-col xl:ml-[165px] \
+      nav(class="gap-4 flex m-auto xl:flex-col \
       xl:gap-8 xl:mt-0")
         router-link(
           v-for="(item, i) in links"
@@ -70,7 +71,6 @@ export default {
     getHeaderWidth() {
       window.addEventListener("resize", () => {
         this.headerWidth = document.querySelector("header").clientWidth;
-        console.log(this.headerWidth);
       });
     },
   },
