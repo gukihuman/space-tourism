@@ -4,7 +4,7 @@ div(:class="preloadBackgrounds")
 
 //- html background
 div(class="bg-black bg-cover min-h-screen bg-home sm:bg-home-sm \
-  xl:bg-home-xl" :class="classObject")
+  xl:bg-home-xl" :class="classObject" :style='styleObject')
 
   div(class="relative sm:max-h-[1100px] xl:max-h-[950px] sm:min-h-[950px] \
   xl:min-h-[820px]")
@@ -46,6 +46,7 @@ div(class="bg-black bg-cover min-h-screen bg-home sm:bg-home-sm \
 <script>
 import MobileNav from "@/components/MobileNav.vue";
 import Nav from "@/components/Nav.vue";
+import { useCommonStore as cs } from "@/stores/CommonStore.js";
 
 export default {
   components: {
@@ -62,6 +63,7 @@ export default {
         "02": ["CREW", "/crew"],
         "03": ["TECHNOLOGY", "/technology"],
       },
+      resize: 0,
     };
   },
   computed: {
@@ -72,6 +74,20 @@ export default {
           this.$route.path.includes("crew") ||
           this.$route.path.includes("technology"),
       };
+    },
+    styleObject() {
+      if (
+        (this.resize >= 0 && this.$route.path.includes("destination")) ||
+        this.$route.path.includes("crew") ||
+        window.innerWidth < 1280
+      ) {
+        return;
+      } else {
+        return {
+          "max-height": cs().height + "px",
+          overflow: "hidden",
+        };
+      }
     },
     classObject() {
       return {
@@ -93,6 +109,9 @@ export default {
     },
   },
   mounted() {
+    addEventListener("resize", () => {
+      this.resize += 1;
+    });
     setTimeout(() => {
       this.preloadBackgrounds =
         "bg-destination sm:bg-destination-sm xl:bg-destination-xl";
@@ -106,6 +125,10 @@ export default {
     }, 1800);
     setTimeout(() => {
       this.preloadBackgrounds = "bg-home sm:bg-home-sm xl:bg-home-xl";
+    }, 1800);
+
+    setTimeout(() => {
+      console.log(cs().height);
     }, 1800);
   },
 };
