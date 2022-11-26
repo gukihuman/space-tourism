@@ -9,37 +9,34 @@ div(class="bg-black bg-cover min-h-screen bg-home sm:bg-home-sm \
   div(class="relative sm:max-h-[1100px] xl:max-h-[950px] sm:min-h-[950px] \
   xl:min-h-[820px]")
 
-    //- html black .75 filter except for home
-    div(:class="classBackground")
+    //- wrapper
+    div(class="max-w-screen-2xl min-h-screen m-auto flex flex-col \
+    xl:justify-end")
 
-      //- wrapper
-      div(class="max-w-screen-2xl min-h-screen m-auto flex flex-col \
-      xl:justify-end")
+      div(class="h-fit xl:min-h-[858px]")
 
-        div(class="h-fit xl:min-h-[858px]")
+        MobileNav(v-if="showNav" :links="links" @toggleNavEvent="toggleNav")
 
-          MobileNav(v-if="showNav" :links="links" @toggleNavEvent="toggleNav")
+        header(class="relative flex items-center p-6 justify-between sm:p-0")
+          img(src="@/assets/shared/logo.svg" alt="logo" class="w-10 sm:w-12 \
+          sm:ml-[39px]")
+          
+          //- line
+          div(class="hidden xl:flex w-1/2 h-[1px] absolute top-[48px] \
+          left-0 pl-[167px] pr-[80px]")
+            div(class="w-full bg-white opacity-25 z-20")
 
-          header(class="relative flex items-center p-6 justify-between sm:p-0")
-            img(src="@/assets/shared/logo.svg" alt="logo" class="w-10 sm:w-12 \
-            sm:ml-[39px]")
-            
-            //- line
-            div(class="hidden xl:flex w-1/2 h-[1px] absolute top-[48px] \
-            left-0 pl-[167px] pr-[80px]")
-              div(class="w-full bg-white opacity-25 z-20")
+          //- opens mobile navigation
+          button(v-if="!showNav" @click="toggleNav" class="sm:hidden")
+            img(src="@/assets/shared/icon-hamburger.svg" alt="menu")
+          button(v-if="showNav" @click="toggleNav" class="absolute top-[34px] \
+          right-[26px] z-20")
+            img(src="@/assets/shared/icon-close.svg" alt="close menu")
 
-            //- opens mobile navigation
-            button(v-if="!showNav" @click="toggleNav" class="sm:hidden")
-              img(src="@/assets/shared/icon-hamburger.svg" alt="menu")
-            button(v-if="showNav" @click="toggleNav" class="absolute top-[34px] \
-            right-[26px] z-20")
-              img(src="@/assets/shared/icon-close.svg" alt="close menu")
+          //- hidden on mobile
+          Nav(:links="links")
 
-            //- hidden on mobile
-            Nav(:links="links")
-
-          router-view
+        router-view
 
 </template>
 
@@ -58,23 +55,15 @@ export default {
       preloadBackgrounds: "",
       showNav: false,
       links: {
-        "00": ["HOME", "/"],
-        "01": ["DESTINATION", "/destination"],
-        "02": ["CREW", "/crew"],
-        "03": ["TECHNOLOGY", "/technology"],
+        "00": ["HOME", "/space-tourism"],
+        "01": ["DESTINATION", "/space-tourism/destination"],
+        "02": ["CREW", "/space-tourism/crew"],
+        "03": ["TECHNOLOGY", "/space-tourism/technology"],
       },
       resize: 0,
     };
   },
   computed: {
-    classBackground() {
-      return {
-        "bg-black/25":
-          this.$route.path.includes("destination") ||
-          this.$route.path.includes("crew") ||
-          this.$route.path.includes("technology"),
-      };
-    },
     styleObject() {
       if (
         (this.resize >= 0 && this.$route.path.includes("destination")) ||
@@ -125,10 +114,6 @@ export default {
     }, 1800);
     setTimeout(() => {
       this.preloadBackgrounds = "bg-home sm:bg-home-sm xl:bg-home-xl";
-    }, 1800);
-
-    setTimeout(() => {
-      console.log(cs().height);
     }, 1800);
   },
 };

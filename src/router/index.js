@@ -21,7 +21,7 @@ const routes = [
     path: "/space-tourism/destination",
     name: "destination",
     component: DestinationView,
-    redirect: `/destination/${data.destinations[0].name}`,
+    redirect: `/space-tourism/destination/${data.destinations[0].name}`,
     children: [
       {
         path: ":spaceObject",
@@ -33,7 +33,7 @@ const routes = [
     path: "/space-tourism/crew",
     name: "crew",
     component: CrewView,
-    redirect: `/crew/${data.crew[0].role}`,
+    redirect: `/space-tourism/crew/${data.crew[0].role}`,
     children: [
       {
         path: ":member",
@@ -45,7 +45,7 @@ const routes = [
     path: "/space-tourism/technology",
     name: "technology",
     component: TechnologyView,
-    redirect: `/technology/${data.technology[0].name}`,
+    redirect: `/space-tourism/technology/${data.technology[0].name}`,
     children: [
       {
         path: ":techObject",
