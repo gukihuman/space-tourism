@@ -55,10 +55,10 @@ export default {
       preloadBackgrounds: "",
       showNav: false,
       links: {
-        "00": ["HOME", "/space-tourism"],
-        "01": ["DESTINATION", "/space-tourism/destination"],
-        "02": ["CREW", "/space-tourism/crew"],
-        "03": ["TECHNOLOGY", "/space-tourism/technology"],
+        "00": ["HOME", "/"],
+        "01": ["DESTINATION", "/destination"],
+        "02": ["CREW", "/crew"],
+        "03": ["TECHNOLOGY", "/technology"],
       },
       resize: 0,
     };
