@@ -13,15 +13,15 @@ import data from "@/data.json";
 
 const routes = [
   {
-    path: "/space-tourism/",
+    path: "/",
     name: "home",
     component: HomeView,
   },
   {
-    path: "/space-tourism/destination",
+    path: "/destination",
     name: "destination",
     component: DestinationView,
-    redirect: `/space-tourism/destination/${data.destinations[0].name}`,
+    redirect: `/destination/${data.destinations[0].name}`,
     children: [
       {
         path: ":spaceObject",
@@ -30,10 +30,10 @@ const routes = [
     ],
   },
   {
-    path: "/space-tourism/crew",
+    path: "/crew",
     name: "crew",
     component: CrewView,
-    redirect: `/space-tourism/crew/${data.crew[0].role}`,
+    redirect: `/crew/${data.crew[0].role}`,
     children: [
       {
         path: ":member",
@@ -42,10 +42,10 @@ const routes = [
     ],
   },
   {
-    path: "/space-tourism/technology",
+    path: "/technology",
     name: "technology",
     component: TechnologyView,
-    redirect: `/space-tourism/technology/${data.technology[0].name}`,
+    redirect: `/technology/${data.technology[0].name}`,
     children: [
       {
         path: ":techObject",

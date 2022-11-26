@@ -24,7 +24,7 @@ div(class="sm:min-h-[calc(100vh-136px)]")
         |out of this world experience!
 
     router-link(
-      to="/space-tourism/destination"
+      to="/destination"
       class="w-[150px] h-[150px] mt-[57px] bg-white rounded-full \
       mx-auto flex justify-center sm:w-[242px] sm:h-[242px] sm:mt-[132px] \
       xl:mx-0 xl:w-[274px] xl:h-[274px] xl:hover:after:w-[450px] \
